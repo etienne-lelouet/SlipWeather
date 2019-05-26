@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B69229B04AF0040DBF3 /* AppDelegate.swift */; };
+		E6472B6C229B04AF0040DBF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B6B229B04AF0040DBF3 /* ViewController.swift */; };
+		E6472B6F229B04AF0040DBF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6472B6D229B04AF0040DBF3 /* Main.storyboard */; };
+		E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */; };
+		E6472B74229B04B20040DBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6472B73229B04B20040DBF3 /* Assets.xcassets */; };
+		E6472B77229B04B20040DBF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */; };
+		E6472B82229B04B30040DBF3 /* SlipWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B81229B04B30040DBF3 /* SlipWeatherTests.swift */; };
+		E6472B8D229B04B30040DBF3 /* SlipWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B8C229B04B30040DBF3 /* SlipWeatherUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E6472B7E229B04B20040DBF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6472B5E229B04AF0040DBF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6472B65229B04AF0040DBF3;
+			remoteInfo = SlipWeather;
+		};
+		E6472B89229B04B30040DBF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6472B5E229B04AF0040DBF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6472B65229B04AF0040DBF3;
+			remoteInfo = SlipWeather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E6472B66229B04AF0040DBF3 /* SlipWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlipWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6472B69229B04AF0040DBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E6472B6B229B04AF0040DBF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E6472B6E229B04AF0040DBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlipWeather.xcdatamodel; sourceTree = "<group>"; };
+		E6472B73229B04B20040DBF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E6472B76229B04B20040DBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6472B78229B04B20040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6472B7D229B04B20040DBF3 /* SlipWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlipWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6472B81229B04B30040DBF3 /* SlipWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipWeatherTests.swift; sourceTree = "<group>"; };
+		E6472B83229B04B30040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6472B88229B04B30040DBF3 /* SlipWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlipWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6472B8C229B04B30040DBF3 /* SlipWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipWeatherUITests.swift; sourceTree = "<group>"; };
+		E6472B8E229B04B30040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E6472B63229B04AF0040DBF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B7A229B04B20040DBF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B85229B04B30040DBF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E6472B5D229B04AF0040DBF3 = {
+			isa = PBXGroup;
+			children = (
+				E6472B68229B04AF0040DBF3 /* SlipWeather */,
+				E6472B80229B04B20040DBF3 /* SlipWeatherTests */,
+				E6472B8B229B04B30040DBF3 /* SlipWeatherUITests */,
+				E6472B67229B04AF0040DBF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6472B67229B04AF0040DBF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6472B66229B04AF0040DBF3 /* SlipWeather.app */,
+				E6472B7D229B04B20040DBF3 /* SlipWeatherTests.xctest */,
+				E6472B88229B04B30040DBF3 /* SlipWeatherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6472B68229B04AF0040DBF3 /* SlipWeather */ = {
+			isa = PBXGroup;
+			children = (
+				E6472B69229B04AF0040DBF3 /* AppDelegate.swift */,
+				E6472B6B229B04AF0040DBF3 /* ViewController.swift */,
+				E6472B6D229B04AF0040DBF3 /* Main.storyboard */,
+				E6472B73229B04B20040DBF3 /* Assets.xcassets */,
+				E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */,
+				E6472B78229B04B20040DBF3 /* Info.plist */,
+				E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */,
+			);
+			path = SlipWeather;
+			sourceTree = "<group>";
+		};
+		E6472B80229B04B20040DBF3 /* SlipWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6472B81229B04B30040DBF3 /* SlipWeatherTests.swift */,
+				E6472B83229B04B30040DBF3 /* Info.plist */,
+			);
+			path = SlipWeatherTests;
+			sourceTree = "<group>";
+		};
+		E6472B8B229B04B30040DBF3 /* SlipWeatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E6472B8C229B04B30040DBF3 /* SlipWeatherUITests.swift */,
+				E6472B8E229B04B30040DBF3 /* Info.plist */,
+			);
+			path = SlipWeatherUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E6472B65229B04AF0040DBF3 /* SlipWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6472B91229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeather" */;
+			buildPhases = (
+				E6472B62229B04AF0040DBF3 /* Sources */,
+				E6472B63229B04AF0040DBF3 /* Frameworks */,
+				E6472B64229B04AF0040DBF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlipWeather;
+			productName = SlipWeather;
+			productReference = E6472B66229B04AF0040DBF3 /* SlipWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E6472B7C229B04B20040DBF3 /* SlipWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6472B94229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeatherTests" */;
+			buildPhases = (
+				E6472B79229B04B20040DBF3 /* Sources */,
+				E6472B7A229B04B20040DBF3 /* Frameworks */,
+				E6472B7B229B04B20040DBF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6472B7F229B04B20040DBF3 /* PBXTargetDependency */,
+			);
+			name = SlipWeatherTests;
+			productName = SlipWeatherTests;
+			productReference = E6472B7D229B04B20040DBF3 /* SlipWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E6472B87229B04B30040DBF3 /* SlipWeatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6472B97229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeatherUITests" */;
+			buildPhases = (
+				E6472B84229B04B30040DBF3 /* Sources */,
+				E6472B85229B04B30040DBF3 /* Frameworks */,
+				E6472B86229B04B30040DBF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6472B8A229B04B30040DBF3 /* PBXTargetDependency */,
+			);
+			name = SlipWeatherUITests;
+			productName = SlipWeatherUITests;
+			productReference = E6472B88229B04B30040DBF3 /* SlipWeatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6472B5E229B04AF0040DBF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = slipSoft;
+				TargetAttributes = {
+					E6472B65229B04AF0040DBF3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					E6472B7C229B04B20040DBF3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E6472B65229B04AF0040DBF3;
+					};
+					E6472B87229B04B30040DBF3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E6472B65229B04AF0040DBF3;
+					};
+				};
+			};
+			buildConfigurationList = E6472B61229B04AF0040DBF3 /* Build configuration list for PBXProject "SlipWeather" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E6472B5D229B04AF0040DBF3;
+			productRefGroup = E6472B67229B04AF0040DBF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6472B65229B04AF0040DBF3 /* SlipWeather */,
+				E6472B7C229B04B20040DBF3 /* SlipWeatherTests */,
+				E6472B87229B04B30040DBF3 /* SlipWeatherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6472B64229B04AF0040DBF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6472B77229B04B20040DBF3 /* LaunchScreen.storyboard in Resources */,
+				E6472B74229B04B20040DBF3 /* Assets.xcassets in Resources */,
+				E6472B6F229B04AF0040DBF3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B7B229B04B20040DBF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B86229B04B30040DBF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E6472B62229B04AF0040DBF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6472B6C229B04AF0040DBF3 /* ViewController.swift in Sources */,
+				E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */,
+				E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B79229B04B20040DBF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6472B82229B04B30040DBF3 /* SlipWeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6472B84229B04B30040DBF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6472B8D229B04B30040DBF3 /* SlipWeatherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E6472B7F229B04B20040DBF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6472B65229B04AF0040DBF3 /* SlipWeather */;
+			targetProxy = E6472B7E229B04B20040DBF3 /* PBXContainerItemProxy */;
+		};
+		E6472B8A229B04B30040DBF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6472B65229B04AF0040DBF3 /* SlipWeather */;
+			targetProxy = E6472B89229B04B30040DBF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E6472B6D229B04AF0040DBF3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6472B6E229B04AF0040DBF3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6472B76229B04B20040DBF3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E6472B8F229B04B30040DBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E6472B90229B04B30040DBF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6472B92229B04B30040DBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6472B93229B04B30040DBF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E6472B95229B04B30040DBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlipWeather.app/SlipWeather";
+			};
+			name = Debug;
+		};
+		E6472B96229B04B30040DBF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlipWeather.app/SlipWeather";
+			};
+			name = Release;
+		};
+		E6472B98229B04B30040DBF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SlipWeather;
+			};
+			name = Debug;
+		};
+		E6472B99229B04B30040DBF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2JU3AN7WM6;
+				INFOPLIST_FILE = SlipWeatherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = slipSoft.SlipWeatherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SlipWeather;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E6472B61229B04AF0040DBF3 /* Build configuration list for PBXProject "SlipWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6472B8F229B04B30040DBF3 /* Debug */,
+				E6472B90229B04B30040DBF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6472B91229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6472B92229B04B30040DBF3 /* Debug */,
+				E6472B93229B04B30040DBF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6472B94229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6472B95229B04B30040DBF3 /* Debug */,
+				E6472B96229B04B30040DBF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6472B97229B04B30040DBF3 /* Build configuration list for PBXNativeTarget "SlipWeatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6472B98229B04B30040DBF3 /* Debug */,
+				E6472B99229B04B30040DBF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */,
+			);
+			currentVersion = E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */;
+			path = SlipWeather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E6472B5E229B04AF0040DBF3 /* Project object */;
+}
