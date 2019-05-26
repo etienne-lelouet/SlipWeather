@@ -1,0 +1,11 @@
+framework module Weather {
+  umbrella header "Weather.h"
+
+  export *
+  module * { export * }
+}
+
+module Weather.Swift {
+    header "Weather-Swift.h"
+    requires objc
+}
