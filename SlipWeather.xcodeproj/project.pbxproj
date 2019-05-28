@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B69229B04AF0040DBF3 /* AppDelegate.swift */; };
-		E6472B6C229B04AF0040DBF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B6B229B04AF0040DBF3 /* ViewController.swift */; };
 		E6472B6F229B04AF0040DBF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6472B6D229B04AF0040DBF3 /* Main.storyboard */; };
 		E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */; };
 		E6472B74229B04B20040DBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6472B73229B04B20040DBF3 /* Assets.xcassets */; };
@@ -18,6 +17,8 @@
 		E6472BAD229B15F30040DBF3 /* CustomSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472BAC229B15F30040DBF3 /* CustomSearchTextField.swift */; };
 		E6472BBE229B1A1C0040DBF3 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6472BBD229B1A1C0040DBF3 /* Weather.framework */; };
 		E6472BBF229B1A1C0040DBF3 /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6472BBD229B1A1C0040DBF3 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6814B82229BDB3100F1E443 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6814B81229BDB3100F1E443 /* WeatherViewController.swift */; };
+		E6814B84229D603000F1E443 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6814B83229D603000F1E443 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,6 @@
 /* Begin PBXFileReference section */
 		E6472B66229B04AF0040DBF3 /* SlipWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlipWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6472B69229B04AF0040DBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E6472B6B229B04AF0040DBF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E6472B6E229B04AF0040DBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlipWeather.xcdatamodel; sourceTree = "<group>"; };
 		E6472B73229B04B20040DBF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +68,8 @@
 		E6472B8E229B04B30040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6472BAC229B15F30040DBF3 /* CustomSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTextField.swift; sourceTree = "<group>"; };
 		E6472BBD229B1A1C0040DBF3 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
+		E6814B81229BDB3100F1E443 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E6814B83229D603000F1E443 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +123,9 @@
 		E6472B68229B04AF0040DBF3 /* SlipWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E6814B85229D63B000F1E443 /* Model */,
 				E6472BAB229B15D60040DBF3 /* ViewController */,
 				E6472B69229B04AF0040DBF3 /* AppDelegate.swift */,
-				E6472B6B229B04AF0040DBF3 /* ViewController.swift */,
 				E6472B6D229B04AF0040DBF3 /* Main.storyboard */,
 				E6472B73229B04B20040DBF3 /* Assets.xcassets */,
 				E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */,
@@ -155,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				E6472BAC229B15F30040DBF3 /* CustomSearchTextField.swift */,
+				E6814B81229BDB3100F1E443 /* WeatherViewController.swift */,
+				E6814B83229D603000F1E443 /* SearchViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -164,6 +168,13 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6814B85229D63B000F1E443 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6814B84229D603000F1E443 /* SearchViewController.swift in Sources */,
 				E6472BAD229B15F30040DBF3 /* CustomSearchTextField.swift in Sources */,
-				E6472B6C229B04AF0040DBF3 /* ViewController.swift in Sources */,
+				E6814B82229BDB3100F1E443 /* WeatherViewController.swift in Sources */,
 				E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */,
 				E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */,
 			);

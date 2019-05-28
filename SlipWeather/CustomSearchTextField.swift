@@ -13,6 +13,8 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     var resultsList: [City] = [City]()
     var tableView: UITableView?
     let weatherClient: WeatherClient = WeatherClient(key: "2dd8f457671f8f42cf85af02cf47ca48")
+    var performSegueOnSelect: ((City) -> Void)? = nil
+    var isFiltering = false
     
     // Connecting the new element to the parent view
     open override func willMove(toWindow newWindow: UIWindow?) {
@@ -34,11 +36,7 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     //////////////////////////////////////////////////////////////////////////////
     
     @objc open func textFieldDidChange(){
-        print("Text changed ...")
         filter()
-        tableView?.isHidden = false
-        updateSearchTableView()
-        
     }
     
     @objc open func textFieldDidBeginEditing() {
@@ -93,12 +91,13 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     
     // MARK: TableViewDelegate methods
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row")
         let city = resultsList[indexPath.row]
         self.text = city.name + ", " + city.country
+        performSegueOnSelect?(city)
         tableView.isHidden = true
         self.endEditing(true)
     }
+
     // Updating SearchtableView
     func updateSearchTableView() {
         if let tableView = tableView {
@@ -130,21 +129,25 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
             if self.isFirstResponder {
                 superview?.bringSubviewToFront(self)
             }
-            
             tableView.reloadData()
         }
     }
-    // MARK : Filtering methods
+
     fileprivate func filter() {
-        
         if let unwrappedText = text {
-            if (unwrappedText.count > 3) {
-                let results: [City] = weatherClient.citiesSuggestions(for: unwrappedText)
-                let maxLen = results.count <= 20 ? results.count : 20
-                    resultsList = Array(results[0..<maxLen])
+            DispatchQueue.global(qos: .userInitiated).async{
+                print("searching")
+                print(unwrappedText)
+                self.isFiltering = true;
+                let results: [City] = self.weatherClient.citiesSuggestions(for: unwrappedText)
+                DispatchQueue.main.async {
+                    let maxLen = results.count <= 20 ? results.count : 20
+                    self.resultsList = Array(results[0..<maxLen])
+                    self.tableView?.reloadData()
+                    self.tableView?.isHidden = false
+                    self.updateSearchTableView()
+                }
             }
-            
         }
-        tableView?.reloadData()
     }
 }
