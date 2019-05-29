@@ -10,6 +10,14 @@ import UIKit
 import Weather
 import CoreData
 
+extension City {
+    init(name: String, country: String, identifier: Int64) {
+        self.name = name
+        self.country = country
+        self.identifier = identifier
+    }
+}
+
 class WeatherViewController: UIViewController {
     
     var city: City!
@@ -22,7 +30,7 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         navigationBar.topItem?.title = city.name + ", " + city.country
         do {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
+            let request = NSFetchRequest<Favorite>(entityName: "Favorite")
             request.predicate = NSPredicate(format: "identifier == %lld", city.identifier)
             request.fetchLimit = 1
             let fetchedResult = try self.context.fetch(request)
@@ -47,13 +55,12 @@ class WeatherViewController: UIViewController {
         let unwrappedIsFavorite = isFavorite!
         if (unwrappedIsFavorite) {
             do {
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
+                let request = NSFetchRequest<Favorite>(entityName: "Favorite")
                 request.predicate = NSPredicate(format: "identifier == %lld", city.identifier)
                 request.fetchLimit = 1
                 let fetchedResult = try self.context.fetch(request)
                 if (fetchedResult.count == 1) {
-                    let cityToDelete = fetchedResult[0] as! NSManagedObject
-                    self.context.delete(cityToDelete)
+                    self.context.delete(fetchedResult[0])
                     isFavorite = false
                     isFavoriteSwitch.isOn = false
                 } else {
@@ -64,8 +71,8 @@ class WeatherViewController: UIViewController {
                 print("Failed deleting")
             }
         } else {
-            let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: context)
-            let favorite = NSManagedObject(entity: entity!, insertInto: context)
+            let entity = NSEntityDescription.entity(forEntityName: "Favorite", in: context)
+            let favorite = Favorite(entity: entity!, insertInto: context)
             favorite.setValue(self.city.name, forKey: "name")
             favorite.setValue(self.city.country, forKey: "country")
             favorite.setValue(self.city.identifier, forKey: "identifier")
@@ -76,13 +83,4 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

@@ -9,17 +9,16 @@
 /* Begin PBXBuildFile section */
 		E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B69229B04AF0040DBF3 /* AppDelegate.swift */; };
 		E6472B6F229B04AF0040DBF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6472B6D229B04AF0040DBF3 /* Main.storyboard */; };
-		E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */; };
 		E6472B74229B04B20040DBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6472B73229B04B20040DBF3 /* Assets.xcassets */; };
 		E6472B77229B04B20040DBF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */; };
 		E6472B82229B04B30040DBF3 /* SlipWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B81229B04B30040DBF3 /* SlipWeatherTests.swift */; };
 		E6472B8D229B04B30040DBF3 /* SlipWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472B8C229B04B30040DBF3 /* SlipWeatherUITests.swift */; };
 		E6472BAD229B15F30040DBF3 /* CustomSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6472BAC229B15F30040DBF3 /* CustomSearchTextField.swift */; };
-		E6472BBE229B1A1C0040DBF3 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6472BBD229B1A1C0040DBF3 /* Weather.framework */; };
-		E6472BBF229B1A1C0040DBF3 /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6472BBD229B1A1C0040DBF3 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E6814B82229BDB3100F1E443 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6814B81229BDB3100F1E443 /* WeatherViewController.swift */; };
 		E6814B84229D603000F1E443 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6814B83229D603000F1E443 /* SearchViewController.swift */; };
-		E6A1D498229EC9E3000F3E42 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1D497229EC9E3000F3E42 /* CustomTableView.swift */; };
+		E6FDDCF9229EFAC5003245D3 /* Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FDDCF8229EFAC4003245D3 /* Weather.framework */; };
+		E6FDDCFA229EFAC5003245D3 /* Weather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E6FDDCF8229EFAC4003245D3 /* Weather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E6FDDCFC229F033C003245D3 /* SlipWeather.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E6FDDCFB229F033B003245D3 /* SlipWeather.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E6472BBF229B1A1C0040DBF3 /* Weather.framework in Embed Frameworks */,
+				E6FDDCFA229EFAC5003245D3 /* Weather.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,7 +56,6 @@
 		E6472B66229B04AF0040DBF3 /* SlipWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlipWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6472B69229B04AF0040DBF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6472B6E229B04AF0040DBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlipWeather.xcdatamodel; sourceTree = "<group>"; };
 		E6472B73229B04B20040DBF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6472B76229B04B20040DBF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6472B78229B04B20040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,10 +66,10 @@
 		E6472B8C229B04B30040DBF3 /* SlipWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlipWeatherUITests.swift; sourceTree = "<group>"; };
 		E6472B8E229B04B30040DBF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6472BAC229B15F30040DBF3 /* CustomSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTextField.swift; sourceTree = "<group>"; };
-		E6472BBD229B1A1C0040DBF3 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
 		E6814B81229BDB3100F1E443 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		E6814B83229D603000F1E443 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		E6A1D497229EC9E3000F3E42 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		E6FDDCF8229EFAC4003245D3 /* Weather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Weather.framework; sourceTree = "<group>"; };
+		E6FDDCFB229F033B003245D3 /* SlipWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = SlipWeather.xcdatamodel; path = SlipWeather/SlipWeather.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6472BBE229B1A1C0040DBF3 /* Weather.framework in Frameworks */,
+				E6FDDCF9229EFAC5003245D3 /* Weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +101,8 @@
 		E6472B5D229B04AF0040DBF3 = {
 			isa = PBXGroup;
 			children = (
-				E6472BBD229B1A1C0040DBF3 /* Weather.framework */,
+				E6FDDCFB229F033B003245D3 /* SlipWeather.xcdatamodel */,
+				E6FDDCF8229EFAC4003245D3 /* Weather.framework */,
 				E6472B68229B04AF0040DBF3 /* SlipWeather */,
 				E6472B80229B04B20040DBF3 /* SlipWeatherTests */,
 				E6472B8B229B04B30040DBF3 /* SlipWeatherUITests */,
@@ -133,7 +132,6 @@
 				E6472B73229B04B20040DBF3 /* Assets.xcassets */,
 				E6472B75229B04B20040DBF3 /* LaunchScreen.storyboard */,
 				E6472B78229B04B20040DBF3 /* Info.plist */,
-				E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */,
 			);
 			path = SlipWeather;
 			sourceTree = "<group>";
@@ -183,7 +181,6 @@
 		E6A1D496229EC9C3000F3E42 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E6A1D497229EC9E3000F3E42 /* CustomTableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -322,9 +319,8 @@
 			files = (
 				E6814B84229D603000F1E443 /* SearchViewController.swift in Sources */,
 				E6472BAD229B15F30040DBF3 /* CustomSearchTextField.swift in Sources */,
-				E6A1D498229EC9E3000F3E42 /* CustomTableView.swift in Sources */,
 				E6814B82229BDB3100F1E443 /* WeatherViewController.swift in Sources */,
-				E6472B72229B04AF0040DBF3 /* SlipWeather.xcdatamodeld in Sources */,
+				E6FDDCFC229F033C003245D3 /* SlipWeather.xcdatamodel in Sources */,
 				E6472B6A229B04AF0040DBF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,19 +662,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E6472B70229B04AF0040DBF3 /* SlipWeather.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */,
-			);
-			currentVersion = E6472B71229B04AF0040DBF3 /* SlipWeather.xcdatamodel */;
-			path = SlipWeather.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E6472B5E229B04AF0040DBF3 /* Project object */;
 }

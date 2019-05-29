@@ -23,13 +23,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0DZ-aj-sfG">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DZ-aj-sfG">
                                 <rect key="frame" x="0.0" y="20" width="768" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="xtm-Su-vza"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UCV-Yw-ool" customClass="CustomTableView" customModule="SlipWeather" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UCV-Yw-ool">
                                 <rect key="frame" x="16" y="117" width="732" height="858"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -53,7 +53,9 @@
                             <constraint firstItem="01Z-ez-bMO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CMq-Xk-uWn"/>
                             <constraint firstItem="UCV-Yw-ool" firstAttribute="centerX" secondItem="0DZ-aj-sfG" secondAttribute="centerX" constant="-2" id="PhM-99-3ql"/>
                             <constraint firstItem="UCV-Yw-ool" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2" id="T42-c7-uFB"/>
+                            <constraint firstItem="0DZ-aj-sfG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZAO-Ow-R9o"/>
                             <constraint firstItem="01Z-ez-bMO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="aEx-79-AeH"/>
+                            <constraint firstItem="0DZ-aj-sfG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dMo-Ea-nSb"/>
                             <constraint firstItem="UCV-Yw-ool" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="e1q-QZ-QqY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UCV-Yw-ool" secondAttribute="bottom" constant="49" id="gXp-6z-Tal"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="01Z-ez-bMO" secondAttribute="bottom" constant="915" id="vZa-VT-sDh"/>

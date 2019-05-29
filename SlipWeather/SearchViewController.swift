@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var favoritesTableView: UITableView!
     let textCellIdentifier = "FavoriteCityCell"
-    var favoritesList = [City]()
+    var favoritesList = [Favorite]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -31,19 +31,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.favoritesTableView.delegate = self
         self.favoritesTableView.dataSource = self
         self.favoritesTableView.tableFooterView = UIView()
+        fetchDataForFavoritesTable()
     }
     
     func fetchDataForFavoritesTable() {
         do {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
+            let request = NSFetchRequest<Favorite>(entityName: "Favorite")
             let fetchedResults = try self.context.fetch(request)
-            
-            for data in fetchedResults as! [NSManagedObject] {
-                let name = data.value(forKey: "name") as! String
-                let country = data.value(forKey: "country") as! String
-                let identifier = data.value(forKey: "identifier") as! Int64
-                self.favoritesList.append(City(identifier: identifier, name: name, country: country))
+            for favorite in fetchedResults {
+                self.favoritesList.append(favorite)
             }
+            self.favoritesTableView.reloadData()
         }
         catch {
             print ("fetch task failed", error)
@@ -69,18 +67,29 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    //TableView Methods
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoriteCityArray.count
+        return favoritesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as UITableViewCell
-        let city = favoriteCityArray[indexPath.row];
-        cell.textLabel?.text = city
+        let city: Favorite = favoritesList[indexPath.row];
+        let name = city.name ?? String.init()
+        let country = city.country ?? String.init()
+        cell.textLabel?.text = name + ", " + country
         return cell
+    }
+    
+    // MARK: TableViewDelegate methods
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city = favoritesList[indexPath.row]
+        self.selectedCity = City(name: city.name!, country: city.country!, identifier: city.identifier)
+        self.performSegue(withIdentifier: "selectedCitySegue", sender: self)
     }
 }
