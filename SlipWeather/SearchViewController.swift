@@ -8,18 +8,45 @@
 
 import UIKit
 import Weather
+import CoreData
 
-class SearchViewController: UIViewController {
-    
-    @IBOutlet weak var SearchField: CustomSearchTextField!
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     var selectedCity: City? = nil;
+    @IBOutlet weak var SearchField: CustomSearchTextField!
+
+    @IBOutlet weak var favoritesTableView: UITableView!
+    let textCellIdentifier = "FavoriteCityCell"
+    var favoritesList = [City]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 
     override func viewDidLoad() {
-        print("loaded SearchViewController")
         SearchField.performSegueOnSelect = {
             (c: City) in
             self.selectedCity = c
             self.performSegue(withIdentifier: "selectedCitySegue", sender: self)
+        }
+        self.favoritesTableView.delegate = self
+        self.favoritesTableView.dataSource = self
+        self.favoritesTableView.tableFooterView = UIView()
+    }
+    
+    func fetchDataForFavoritesTable() {
+        do {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
+            let fetchedResults = try self.context.fetch(request)
+            
+            for data in fetchedResults as! [NSManagedObject] {
+                let name = data.value(forKey: "name") as! String
+                let country = data.value(forKey: "country") as! String
+                let identifier = data.value(forKey: "identifier") as! Int64
+                self.favoritesList.append(City(identifier: identifier, name: name, country: country))
+            }
+        }
+        catch {
+            print ("fetch task failed", error)
         }
     }
     
@@ -40,5 +67,20 @@ class SearchViewController: UIViewController {
             let weatherVC = segue.destination as? WeatherViewController
             weatherVC?.city = self.selectedCity
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favoriteCityArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as UITableViewCell
+        let city = favoriteCityArray[indexPath.row];
+        cell.textLabel?.text = city
+        return cell
     }
 }

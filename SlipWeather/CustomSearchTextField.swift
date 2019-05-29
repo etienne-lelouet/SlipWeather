@@ -124,7 +124,7 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
             tableView.separatorInset = UIEdgeInsets.zero
             tableView.layer.cornerRadius = 5.0
             tableView.separatorColor = UIColor.lightGray
-            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            tableView.backgroundColor = UIColor.white
             
             if self.isFirstResponder {
                 superview?.bringSubviewToFront(self)
@@ -134,18 +134,25 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     }
 
     fileprivate func filter() {
-        if let unwrappedText = text {
+        if let unwrappedText = self.text {
             DispatchQueue.global(qos: .userInitiated).async{
-                print("searching")
-                print(unwrappedText)
                 self.isFiltering = true;
                 let results: [City] = self.weatherClient.citiesSuggestions(for: unwrappedText)
                 DispatchQueue.main.async {
-                    let maxLen = results.count <= 20 ? results.count : 20
-                    self.resultsList = Array(results[0..<maxLen])
-                    self.tableView?.reloadData()
-                    self.tableView?.isHidden = false
-                    self.updateSearchTableView()
+                    if let textAfterSearch = self.text {
+                        if (textAfterSearch.count == 0) {
+                            self.resultsList = [City]()
+                            self.tableView?.reloadData()
+                            self.tableView?.isHidden = false
+                            self.updateSearchTableView()
+                        } else if (textAfterSearch == unwrappedText) {
+                            let maxLen = results.count <= 20 ? results.count : 20
+                            self.resultsList = Array(results[0..<maxLen])
+                            self.tableView?.reloadData()
+                            self.tableView?.isHidden = false
+                            self.updateSearchTableView()
+                        }
+                    }
                 }
             }
         }

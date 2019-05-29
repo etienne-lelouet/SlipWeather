@@ -14,6 +14,7 @@ class WeatherViewController: UIViewController {
     
     var city: City!
     var isFavorite: Bool? = nil
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var isFavoriteSwitch: UISwitch!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -21,12 +22,11 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         navigationBar.topItem?.title = city.name + ", " + city.country
         do {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CityFromCore")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
             request.predicate = NSPredicate(format: "identifier == %lld", city.identifier)
             request.fetchLimit = 1
-            let fetchedResults = try context.fetch(request)
-            if (fetchedResults.count == 1) {
+            let fetchedResult = try self.context.fetch(request)
+            if (fetchedResult.count == 1) {
                 isFavorite = true
                 isFavoriteSwitch.isOn = true
             } else {
@@ -36,6 +36,44 @@ class WeatherViewController: UIViewController {
         }
         catch {
             print ("fetch task failed", error)
+        }
+    }
+    
+    @IBAction func OnExit(_ sender: Any) {
+        performSegue(withIdentifier: "BackOnSearchSegue", sender: self)
+    }
+    
+    @IBAction func cityWasFaved(_ sender: Any) {
+        let unwrappedIsFavorite = isFavorite!
+        if (unwrappedIsFavorite) {
+            do {
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
+                request.predicate = NSPredicate(format: "identifier == %lld", city.identifier)
+                request.fetchLimit = 1
+                let fetchedResult = try self.context.fetch(request)
+                if (fetchedResult.count == 1) {
+                    let cityToDelete = fetchedResult[0] as! NSManagedObject
+                    self.context.delete(cityToDelete)
+                    isFavorite = false
+                    isFavoriteSwitch.isOn = false
+                } else {
+                    isFavorite = true
+                    isFavoriteSwitch.isOn = true
+                }
+            } catch {
+                print("Failed deleting")
+            }
+        } else {
+            let entity = NSEntityDescription.entity(forEntityName: "Favorites", in: context)
+            let favorite = NSManagedObject(entity: entity!, insertInto: context)
+            favorite.setValue(self.city.name, forKey: "name")
+            favorite.setValue(self.city.country, forKey: "country")
+            favorite.setValue(self.city.identifier, forKey: "identifier")
+            do {
+                try context.save()
+            } catch {
+                print("Failed saving")
+            }
         }
     }
     
