@@ -12,7 +12,7 @@ import Weather
 class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDelegate {
     var resultsList: [City] = [City]()
     var tableView: UITableView?
-    let weatherClient: WeatherClient = WeatherClient(key: "2dd8f457671f8f42cf85af02cf47ca48")
+    var weatherClient: WeatherClient?
     var performSegueOnSelect: ((City) -> Void)? = nil
     var isFiltering = false
     
@@ -57,7 +57,6 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     }
     
     func buildSearchTableView() {
-        
         if let tableView = tableView {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomSearchTextFieldCell")
             tableView.delegate = self
@@ -66,6 +65,13 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
             
         } else {
             print("tableView created")
+            DispatchQueue.global(qos: .userInitiated).async{
+                self.weatherClient = WeatherClient(key: "2dd8f457671f8f42cf85af02cf47ca48")
+                DispatchQueue.main.async{
+                    print("ready")
+                    self.filter()
+                }
+            }
             tableView = UITableView(frame: CGRect.zero)
         }
         
@@ -134,10 +140,10 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     }
 
     fileprivate func filter() {
-        if let unwrappedText = self.text {
+        if let unwrappedText = self.text, let unwrappedWeatherClient = self.weatherClient {
             DispatchQueue.global(qos: .userInitiated).async{
                 self.isFiltering = true;
-                let results: [City] = self.weatherClient.citiesSuggestions(for: unwrappedText)
+                let results: [City] = unwrappedWeatherClient.citiesSuggestions(for: unwrappedText)
                 DispatchQueue.main.async {
                     if let textAfterSearch = self.text {
                         if (textAfterSearch.count == 0) {

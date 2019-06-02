@@ -10,6 +10,22 @@ import UIKit
 import Weather
 import CoreData
 
+extension City {
+    init(name: String, country: String, identifier: Int64) {
+        self.name = name
+        self.country = country
+        self.identifier = identifier
+    }
+}
+
+class FavoritesTableViewCell: UITableViewCell {
+    @IBOutlet weak var DateValue: UILabel!
+    @IBOutlet weak var TemperatureValue: UILabel!
+    @IBOutlet weak var WindSpeedValue: UILabel!
+    @IBOutlet weak var WeatherTitle: UILabel!
+    @IBOutlet weak var WeatherLogo: UIImageView!
+}
+
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var selectedCity: City? = nil;
