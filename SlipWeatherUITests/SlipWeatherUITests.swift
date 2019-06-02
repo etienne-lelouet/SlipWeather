@@ -2,7 +2,7 @@
 //  SlipWeatherUITests.swift
 //  SlipWeatherUITests
 //
-//  Created by Etienne Le Louet on 26/05/2019.
+//  Created by Etienne L'alouette on 26/05/2019.
 //  Copyright © 2019 slipSoft. All rights reserved.
 //
 
