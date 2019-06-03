@@ -10,20 +10,19 @@ import UIKit
 import Weather
 import CoreData
 
+class FavoritesTableViewCell: UITableViewCell {
+    @IBOutlet weak var CityName: UILabel!
+    @IBOutlet weak var TemperatureValue: UILabel!
+    @IBOutlet weak var WeatherTitle: UILabel!
+    @IBOutlet weak var WeatherLogo: UIImageView!
+}
+
 extension City {
     init(name: String, country: String, identifier: Int64) {
         self.name = name
         self.country = country
         self.identifier = identifier
     }
-}
-
-class FavoritesTableViewCell: UITableViewCell {
-    @IBOutlet weak var DateValue: UILabel!
-    @IBOutlet weak var TemperatureValue: UILabel!
-    @IBOutlet weak var WindSpeedValue: UILabel!
-    @IBOutlet weak var WeatherTitle: UILabel!
-    @IBOutlet weak var WeatherLogo: UIImageView!
 }
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -34,6 +33,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var favoritesTableView: UITableView!
     let textCellIdentifier = "FavoriteCityCell"
     var favoritesList = [Favorite]()
+    var currentFavoriteForecasts = [Forecast]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -44,6 +44,25 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             self.selectedCity = c
             self.performSegue(withIdentifier: "selectedCitySegue", sender: self)
         }
+        
+        SearchField.fetchDataWhenReady = {
+            for favoriteCity in self.favoritesList {
+                let city = City(name: favoriteCity.name!, country: favoriteCity.country!, identifier: favoriteCity.identifier)
+                self.SearchField.weatherClient?.weather(for: city, completion: { (forecast: Forecast?) in
+                    if let unwrappedForecast = forecast {
+                        self.currentFavoriteForecasts.append(unwrappedForecast)
+                        if (self.currentFavoriteForecasts.count == self.favoritesList.count) {
+                            DispatchQueue.main.async{
+                                self.favoritesTableView.reloadData()
+                            }
+                        }
+                    } else {
+                        print("fetch error")
+                    }
+                })
+            }
+        }
+        
         self.favoritesTableView.delegate = self
         self.favoritesTableView.dataSource = self
         self.favoritesTableView.tableFooterView = UIView()
@@ -57,7 +76,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             for favorite in fetchedResults {
                 self.favoritesList.append(favorite)
             }
-            self.favoritesTableView.reloadData()
         }
         catch {
             print ("fetch task failed", error)
@@ -90,15 +108,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoritesList.count
+        return currentFavoriteForecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as UITableViewCell
-        let city: Favorite = favoritesList[indexPath.row];
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as! FavoritesTableViewCell
+        let city: Favorite = favoritesList[indexPath.row]
+        let forecast: Forecast = currentFavoriteForecasts[indexPath.row];
         let name = city.name ?? String.init()
         let country = city.country ?? String.init()
-        cell.textLabel?.text = name + ", " + country
+        cell.CityName?.text = name + ", " + country
+        cell.TemperatureValue?.text = String(forecast.temperature) + "°C"
+        cell.WeatherTitle?.text = forecast.weather[0].title
+        cell.WeatherLogo?.image = forecast.weather[0].icon
         return cell
     }
     

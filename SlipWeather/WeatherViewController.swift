@@ -69,47 +69,62 @@ class WeatherViewController: UIViewController {
     @objc func selectionDidChange(_ sender: UISegmentedControl) {
         self.selectedView = sender.selectedSegmentIndex
         if (self.isLoaded) {
-            for sView in self.WeatherContainer.subviews {
-                sView.removeFromSuperview()
-            }
-            switch sender.selectedSegmentIndex {
-            case 0:
-                self.dayVC.view.frame = self.WeatherContainer.bounds
-                self.WeatherContainer.addSubview(self.dayVC.view)
-            case 1:
-                self.weekVC.view.frame = self.WeatherContainer.bounds
-                self.WeatherContainer.addSubview(self.weekVC.view)
-            default:
-                self.dayVC.view.frame = self.WeatherContainer.bounds
-                self.WeatherContainer.addSubview(self.dayVC.view)
-            }
+            getData(forView: sender.selectedSegmentIndex)
         }
     }
     
     func getData(forView: Int) -> Void {
-        weatherClient?.weather(for: self.city, completion: { (forecast: Forecast?) in
-            if let unwrappedForecast = forecast {
-                self.dayVC.dayWeather = []
-                self.dayVC.displayedWeather =  unwrappedForecast
-                DispatchQueue.main.async {
-                    self.selectionDidChange(self.DisplaySegmentedBar) //Oui bon...
+        switch forView {
+        case 0:
+            weatherClient?.weather(for: self.city, completion: { (forecast: Forecast?) in
+                if let unwrappedForecast = forecast {
+                    self.dayVC.dayWeather = []
+                    self.dayVC.displayedWeather =  unwrappedForecast
+                    DispatchQueue.main.async{
+                        for sView in self.WeatherContainer.subviews {
+                            sView.removeFromSuperview()
+                        }
+                        self.dayVC.view.frame = self.WeatherContainer.bounds
+                        self.WeatherContainer.addSubview(self.dayVC.view)
+                    }           
+                } else {
+                    print("error when fetching")
                 }
-            } else {
-                print("error when fetching")
-            }
-        })
-        weatherClient?.forecast(for: self.city, completion: { (forecast: [Forecast]?) in
-            if let unwrappedForecast = forecast {
-                self.isAllFetched = true
-                let forecastPerDay: [[Forecast]] = self.splitForecastByDay(unwrappedForecast)
-                self.weekVC.weekWeather = forecastPerDay
-                DispatchQueue.main.async {
-                    self.selectionDidChange(self.DisplaySegmentedBar) //Oui bon...
+            })
+        case 1:
+            weatherClient?.forecast(for: self.city, completion: { (forecast: [Forecast]?) in
+                if let unwrappedForecast = forecast {
+                    self.isAllFetched = true
+                    let forecastPerDay: [[Forecast]] = self.splitForecastByDay(unwrappedForecast)
+                    self.weekVC.weekWeather = forecastPerDay
+                    DispatchQueue.main.async{
+                        for sView in self.WeatherContainer.subviews {
+                            sView.removeFromSuperview()
+                        }
+                        self.weekVC.view.frame = self.WeatherContainer.bounds
+                        self.WeatherContainer.addSubview(self.weekVC.view)
+                    }
+                } else {
+                    print("error when fetching")
                 }
-            } else {
+            })
+        default:
+            weatherClient?.weather(for: self.city, completion: { (forecast: Forecast?) in
+                if let unwrappedForecast = forecast {
+                    self.dayVC.dayWeather = []
+                    self.dayVC.displayedWeather =  unwrappedForecast
+                    DispatchQueue.main.async{
+                        for sView in self.WeatherContainer.subviews {
+                            sView.removeFromSuperview()
+                        }
+                        self.dayVC.view.frame = self.WeatherContainer.bounds
+                        self.WeatherContainer.addSubview(self.dayVC.view)
+                    }
+                } else {
                 print("error when fetching")
-            }
-        })
+                }
+            })
+        }
     }
     
     func splitForecastByDay(_ forecastArray: [Forecast]) -> [[Forecast]] {
@@ -121,7 +136,6 @@ class WeatherViewController: UIViewController {
         var maxDay = 7;
         var i = -1; // bout de scotch
         for forecast in forecastArray {
-            print(forecast.date)
             if (maxDay != 0) {
                 currentDay = dateFormatter.string(from: forecast.date)
                 if (lastDay != currentDay) { // Si on est sur un jour différent

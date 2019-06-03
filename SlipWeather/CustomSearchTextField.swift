@@ -14,6 +14,7 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
     var tableView: UITableView?
     var weatherClient: WeatherClient?
     var performSegueOnSelect: ((City) -> Void)? = nil
+    var fetchDataWhenReady: (() -> Void)? = nil
     var isFiltering = false
     
     // Connecting the new element to the parent view
@@ -68,7 +69,7 @@ class CustomSearchTextField: UITextField, UITableViewDataSource, UITableViewDele
             DispatchQueue.global(qos: .userInitiated).async{
                 self.weatherClient = WeatherClient(key: "2dd8f457671f8f42cf85af02cf47ca48")
                 DispatchQueue.main.async{
-                    print("ready")
+                    self.fetchDataWhenReady?()
                     self.filter()
                 }
             }

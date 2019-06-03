@@ -12,7 +12,6 @@ import Weather
 class ForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var DateValue: UILabel!
     @IBOutlet weak var TemperatureValue: UILabel!
-    @IBOutlet weak var WindSpeedValue: UILabel!
     @IBOutlet weak var WeatherTitle: UILabel!
     @IBOutlet weak var WeatherLogo: UIImageView!
 }
@@ -42,21 +41,27 @@ class DayWeatherViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dateFormatter.dateFormat = "EEEE, dd MMMM, HH:mm"
-        self.loadData()
+        if (self.displayedWeather != nil) {
+            print("loaded day weather veiw")
+            self.loadData()
+        }
+        self.OtherTimeTableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
     
     func loadData() { // MEGA FASTIDIEUUUUUX
         self.TitleBar?.text = dateFormatter.string(from: displayedWeather.date)
-        self.CurrentTemperatureValue?.text = String(displayedWeather.temperature)
-        self.MinTemperatureValue?.text = String(displayedWeather.temperatureMin)
-        self.MaxTemperatureValue?.text = String(displayedWeather.temperatureMax)
-        self.PressureValue?.text = String(displayedWeather.pressure)
-        self.HumidityValue?.text = String(displayedWeather.humidity)
+        self.CurrentTemperatureValue?.text = String(displayedWeather.temperature) + "°C"
+        self.MinTemperatureValue?.text = String(displayedWeather.temperatureMin) + "°C"
+        self.MaxTemperatureValue?.text = String(displayedWeather.temperatureMax) + "°C"
+        self.PressureValue?.text = String(displayedWeather.pressure) + " hPa"
+        self.HumidityValue?.text = String(displayedWeather.humidity) + "%"
         self.CloudCoverageValue?.text = String(displayedWeather.cloudsCoverage)
-        self.WindSpeedValue?.text = String(displayedWeather.windSpeed)
-        self.WindDirectionValue?.text = String(displayedWeather.windOrientation)
+        self.WindSpeedValue?.text = String(displayedWeather.windSpeed) + " m/s"
+        self.WindDirectionValue?.text = String(displayedWeather.windOrientation) + " deg"
+        self.iterateWeather()
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.iterateWeather), userInfo: nil, repeats: true)
+        OtherTimeTableView?.reloadData()
     }
     
     @objc func iterateWeather () -> Void {
@@ -77,11 +82,12 @@ class DayWeatherViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCelle", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell", for: indexPath)
             as! ForecastTableViewCell
         let forecast = dayWeather[indexPath.row]
+        cell.WeatherTitle?.text = forecast.weather[0].title
         cell.DateValue?.text = dateFormatter.string(from: forecast.date)
-        cell.TemperatureValue?.text = String(forecast.temperature)
+        cell.TemperatureValue?.text = String(forecast.temperature) + "°C"
         cell.WeatherLogo?.image = forecast.weather[0].icon
         
         return cell
@@ -92,12 +98,15 @@ class DayWeatherViewController: UIViewController, UITableViewDelegate, UITableVi
         self.displayedWeather = dayWeather[indexPath.row]
         timer.invalidate()
         self.dayWeather.remove(at: indexPath.row)
-        self.dayWeather.append(displayedWeather)
+        self.dayWeather.append(oldWeather)
         self.dayWeather.sort(by: { (forecast: Forecast, forecast2: Forecast) in
             return forecast.date < forecast2.date
         })
         OtherTimeTableView?.reloadData()
         self.loadData()
-        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
     }
 }

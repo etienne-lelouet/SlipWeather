@@ -13,15 +13,32 @@ class WeekWeatherViewController: UIViewController {
 
     var maxDateDisplay: Int  = 5
     var weekWeather: [[Forecast]]!
+    var dayVC: DayWeatherViewController!
+    
+    
     
     @IBOutlet weak var DaySelectSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var WeatherContainer: UIView!
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        setupChildViews()
         setupSegmentedControl()
-        // Do any additional setup after loading the view.
     }
     
+    
+    func setupChildViews() {
+        self.dayVC = self.storyboard?.instantiateViewController(withIdentifier: "dayVC") as? DayWeatherViewController
+        self.addChild(self.dayVC)
+        let selectedDayWeather = weekWeather[0]
+        self.dayVC.displayedWeather = selectedDayWeather[0]
+        self.dayVC.dayWeather = Array(selectedDayWeather.dropFirst())
+        dayVC.view.frame = self.WeatherContainer.bounds
+        self.WeatherContainer.addSubview(dayVC.view)
+    }
+
     func formatDate(for date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, dd"
@@ -31,22 +48,19 @@ class WeekWeatherViewController: UIViewController {
     
     func setupSegmentedControl() {
         DaySelectSegmentedControl.removeAllSegments()
-        print(self.weekWeather.count)
         for i in 0...self.weekWeather.count - 1 {
-            print(i)
             DaySelectSegmentedControl.insertSegment(withTitle: formatDate(for: weekWeather[i][0].date), at: i, animated: true)
         }
+        DaySelectSegmentedControl.selectedSegmentIndex = 0
+        DaySelectSegmentedControl.setEnabled(true, forSegmentAt: 0)
+        DaySelectSegmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func selectionDidChange(_ sender: UISegmentedControl) {
+        self.dayVC.timer.invalidate()
+        let selectedDayWeather = weekWeather[sender.selectedSegmentIndex]
+        self.dayVC.displayedWeather = selectedDayWeather[0]
+        self.dayVC.dayWeather = Array(selectedDayWeather.dropFirst())
+        self.dayVC.loadData()
     }
-    */
-
 }
