@@ -108,20 +108,27 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentFavoriteForecasts.count
+        return favoritesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as! FavoritesTableViewCell
         let city: Favorite = favoritesList[indexPath.row]
-        let forecast: Forecast = currentFavoriteForecasts[indexPath.row];
         let name = city.name ?? String.init()
         let country = city.country ?? String.init()
         cell.CityName?.text = name + ", " + country
-        cell.TemperatureValue?.text = String(forecast.temperature) + "°C"
-        cell.WeatherTitle?.text = forecast.weather[0].title
-        cell.WeatherLogo?.image = forecast.weather[0].icon
-        return cell
+        if (currentFavoriteForecasts.count > 0) {
+            let forecast: Forecast = currentFavoriteForecasts[indexPath.row];
+            cell.TemperatureValue?.text = String(forecast.temperature) + "°C"
+            cell.WeatherTitle?.text = forecast.weather[0].title
+            cell.WeatherLogo?.image = forecast.weather[0].icon
+            return cell
+        } else {
+            cell.TemperatureValue?.text = "placeholder"
+            cell.WeatherTitle?.text = "placeholder"
+            cell.WeatherLogo?.image = UIImage(named: "placeholder")
+            return cell
+        }
     }
     
     // MARK: TableViewDelegate methods

@@ -63,9 +63,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LiU-MW-ZRh">
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LiU-MW-ZRh">
                                                     <rect key="frame" x="642" y="11" width="75" height="75"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="KnZ-Q5-itQ"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="LxX-OK-f36"/>
                                                         <constraint firstAttribute="width" constant="75" id="dRj-r2-9pN"/>
                                                     </constraints>
                                                 </imageView>
@@ -86,7 +88,7 @@
                                                 <constraint firstItem="vBl-c4-pG1" firstAttribute="top" secondItem="Ngq-RC-kUD" secondAttribute="topMargin" id="5n8-cf-Abx"/>
                                                 <constraint firstItem="FV6-lk-oj7" firstAttribute="leading" secondItem="Ngq-RC-kUD" secondAttribute="leadingMargin" id="Ccm-5a-rpo"/>
                                                 <constraint firstItem="beQ-x6-TxB" firstAttribute="centerX" secondItem="Ngq-RC-kUD" secondAttribute="centerX" id="DgG-n4-Dxd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LiU-MW-ZRh" secondAttribute="trailing" constant="-5" id="PnA-0a-lcG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LiU-MW-ZRh" secondAttribute="trailing" id="PnA-0a-lcG"/>
                                                 <constraint firstItem="beQ-x6-TxB" firstAttribute="centerY" secondItem="Ngq-RC-kUD" secondAttribute="centerY" id="ekf-Rm-r4O"/>
                                                 <constraint firstItem="FV6-lk-oj7" firstAttribute="top" secondItem="beQ-x6-TxB" secondAttribute="bottom" constant="6" id="mgt-Ew-BY5"/>
                                                 <constraint firstItem="LiU-MW-ZRh" firstAttribute="top" secondItem="vBl-c4-pG1" secondAttribute="top" id="nLV-Wn-5Jd"/>
